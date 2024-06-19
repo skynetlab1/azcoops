@@ -28,7 +28,7 @@ variable "private_key_path" {
   default     = "~/.ssh/id_rsa"
 }
 
-variable "vm_user" {
+variable "vm.user" {
   type    = string
   default = "adminuser"
 }
