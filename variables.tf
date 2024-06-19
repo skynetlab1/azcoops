@@ -1,4 +1,4 @@
-variable "location" {
+9variable "location" {
   description = "The Azure Region in which all resources in this example should be created."
   type        = string
   default     = "westeurope"
@@ -28,7 +28,7 @@ variable "private_key_path" {
   default     = "~/.ssh/id_rsa"
 }
 
-variable "vm.user" {
+variable "vm_user" {
   type    = string
   default = "adminuser"
 }
