@@ -1,0 +1,71 @@
+- name: Install Terraform, kubectl, and Helm on Ubuntu 24
+  hosts: all
+  become: yes
+  tasks:
+    - name: Ensure gnupg and ca-certificates are installed
+      ansible.builtin.apt:
+        name:
+          - gnupg
+          - ca-certificates
+        state: present
+        update_cache: yes
+
+    - name: Get the Ubuntu distribution codename
+      ansible.builtin.command: lsb_release -cs
+      register: ubuntu_codename
+      changed_when: false
+
+    - name: Add the HashiCorp GPG key
+      ansible.builtin.apt_key:
+        url: https://apt.releases.hashicorp.com/gpg
+        state: present
+
+    - name: Add the HashiCorp Linux repository
+      ansible.builtin.apt_repository:
+        repo: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ ubuntu_codename.stdout }} main"
+        state: present
+        update_cache: yes
+
+    - name: Install Terraform
+      ansible.builtin.apt:
+        name: terraform
+        state: latest
+        update_cache: yes
+
+    - name: Import the Google Cloud public key
+      ansible.builtin.apt_key:
+        url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+        state: present
+        keyring: /usr/share/keyrings/cloud.google.gpg
+
+    - name: Add the Google Cloud SDK repository
+      ansible.builtin.apt_repository:
+        repo: 'deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main'
+        state: present
+        filename: 'google-cloud-sdk'
+        update_cache: yes
+
+    - name: Install kubectl
+      ansible.builtin.apt:
+        name: kubectl
+        state: latest
+        update_cache: yes
+
+    - name: Import the Helm GPG key
+      ansible.builtin.apt_key:
+        url: https://baltocdn.com/helm/signing.asc
+        state: present
+        keyring: /usr/share/keyrings/helm.gpg
+
+    - name: Add Helm repository (Apt)
+      ansible.builtin.apt_repository:
+        repo: 'deb [signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main'
+        state: present
+        filename: 'helm-stable-debian'
+        update_cache: yes
+
+    - name: Install Helm
+      ansible.builtin.apt:
+        name: helm
+        state: latest
+        update_cache: yes
