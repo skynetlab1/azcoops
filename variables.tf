@@ -30,5 +30,4 @@ variable "private_key_path" {
 
 variable "vm_user" {
   type    = string
-  default = "adminuser"
 }
