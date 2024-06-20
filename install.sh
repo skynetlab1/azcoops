@@ -1,4 +1,3 @@
-# Run this from cloudshell to see what is happening if and make use of your own ssh keys!!!!
 mkdir .ssh 
 echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDtLKPw0RqCoECfuKNcVPMK0I6jJ/4nLr9gquearXS6rl0u5DED4lGYytGniYxguuucF8qZsax5Qt5U3oJ6yBZYktHGm3V6ZNDLgrprf7ECyJl2yqOeItbEax82pqf/HoyEvEkzjiQRPMG7JMg659n5wrUC3aQ3Vtk+/ytpJGxuKbIccNfMW0A4WJgOqXgiMrw2iZ8SWGkl2Gow9BW64egrrEtq9YwodZedk1gAUmXjZnvAmxrPJoFmadI2LGleC0vH+KHbu04ZYJ5vh5/3/Qp8Khx+0Iq7gd2mgCI0qSHrBYqD21NeDMZPKk/F+XqrSfXo6yIce5ShKHSyMiewSyi+20xguSh44/OeEAJsD8XQSiFrbOmwigVRqPnAtIavDeCPmTn+LSq7vEqxHWTk1Twoi9DM+atf2kbHWNce9xqwpzdyM2nqcfwZdSPZ2PesMUux3N1DDj7KCYKYtTORG1nCZNthvhcsGEckCOdf9ipyyYbf0tJD44ms1/WOCUsDnsc= ruslan@SandboxHost-638544098546585222" > .ssh/id_rsa.pub
 echo "-----BEGIN OPENSSH PRIVATE KEY-----
