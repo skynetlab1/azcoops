@@ -95,7 +95,7 @@ resource "azurerm_linux_virtual_machine" "example" {
       type        = "ssh"
       user        = var.vm_user
       private_key = file("~/.ssh/id_rsa")
-      host        = azurerm_linux_virtual_machine.example.public_ip_address
+      host        = "azcoops.westeurope.cloudapp.azure.cim"
     }
 
     inline = [
