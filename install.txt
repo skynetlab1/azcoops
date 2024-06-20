@@ -1,5 +1,5 @@
-mkdir .ssh 
-echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDtLKPw0RqCoECfuKNcVPMK0I6jJ/4nLr9gquearXS6rl0u5DED4lGYytGniYxguuucF8qZsax5Qt5U3oJ6yBZYktHGm3V6ZNDLgrprf7ECyJl2yqOeItbEax82pqf/HoyEvEkzjiQRPMG7JMg659n5wrUC3aQ3Vtk+/ytpJGxuKbIccNfMW0A4WJgOqXgiMrw2iZ8SWGkl2Gow9BW64egrrEtq9YwodZedk1gAUmXjZnvAmxrPJoFmadI2LGleC0vH+KHbu04ZYJ5vh5/3/Qp8Khx+0Iq7gd2mgCI0qSHrBYqD21NeDMZPKk/F+XqrSfXo6yIce5ShKHSyMiewSyi+20xguSh44/OeEAJsD8XQSiFrbOmwigVRqPnAtIavDeCPmTn+LSq7vEqxHWTk1Twoi9DM+atf2kbHWNce9xqwpzdyM2nqcfwZdSPZ2PesMUux3N1DDj7KCYKYtTORG1nCZNthvhcsGEckCOdf9ipyyYbf0tJD44ms1/WOCUsDnsc= ruslan@SandboxHost-638544098546585222" > .ssh/id_rsa.pub
+mkdir ~/.ssh 
+echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDtLKPw0RqCoECfuKNcVPMK0I6jJ/4nLr9gquearXS6rl0u5DED4lGYytGniYxguuucF8qZsax5Qt5U3oJ6yBZYktHGm3V6ZNDLgrprf7ECyJl2yqOeItbEax82pqf/HoyEvEkzjiQRPMG7JMg659n5wrUC3aQ3Vtk+/ytpJGxuKbIccNfMW0A4WJgOqXgiMrw2iZ8SWGkl2Gow9BW64egrrEtq9YwodZedk1gAUmXjZnvAmxrPJoFmadI2LGleC0vH+KHbu04ZYJ5vh5/3/Qp8Khx+0Iq7gd2mgCI0qSHrBYqD21NeDMZPKk/F+XqrSfXo6yIce5ShKHSyMiewSyi+20xguSh44/OeEAJsD8XQSiFrbOmwigVRqPnAtIavDeCPmTn+LSq7vEqxHWTk1Twoi9DM+atf2kbHWNce9xqwpzdyM2nqcfwZdSPZ2PesMUux3N1DDj7KCYKYtTORG1nCZNthvhcsGEckCOdf9ipyyYbf0tJD44ms1/WOCUsDnsc= ruslan@SandboxHost-638544098546585222" > ~/.ssh/id_rsa.pub
 echo "-----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
 NhAAAAAwEAAQAAAYEA7Syj8NEagqBAn7ijXFTzCtCOoyf+Jy6/YKrnmq10uq5dLuQxA+JR
@@ -38,11 +38,14 @@ RAgLK+xRKY/Bdhp8WJZ499xtCtIpNk2hasx8ZQnsUwOna0z9Vm61EfnWmwdPDOh43ccLke
 fniqfijNqwOc8Gh03yGlUXs+lowWdWuHAvlHQ0+xx7bMqCvCoKowb9Xm/tFwuBlKMRukFA
 9EXyaZ4rvBxP7jQQAAACVydXNsYW5AU2FuZGJveEhvc3QtNjM4NTQ0MDk4NTQ2NTg1MjIy
 AQIDBA==
------END OPENSSH PRIVATE KEy-----"   > .ssh/id_rsa
+-----END OPENSSH PRIVATE KEy-----"   > ~/.ssh/id_rsa
 
-chmod -R 0700 .ssh/id_rsa*
+chmod -R 0700 ~/.ssh/id_rsa*
 
 pip install -U pip ansible 
 git clone https://github.com/skynetlab1/azcoops.git && cd azcoops
 terraform init -upgrade
-terraform apply -auto-approve
+terraform plan -out tfplan
+terraform apply "tfplan"
+
+
