@@ -1,8 +1,4 @@
-Azure Coops - IaC DevOps Demonstration
-
-CyberSecurity challenge: Run from cloudshell: 
-
-wget https://raw.githubusercontent.com/skynetlab1/azcoops/main/install.txt && cat install.txt | bash 
+Azure Coops - IaC DevOps Demonstration 
 ThisTerraform configuration snippetdemonstrates several key DevOps skills and practices:
 
 1. **Infrastructure as Code (IaC):**
