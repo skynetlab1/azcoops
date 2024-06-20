@@ -42,8 +42,7 @@ AQIDBA==
 
 chmod -R 0700 ~/.ssh/id_rsa*
 
-pip install -U pip ansible 
-git clone https://github.com/skynetlab1/azcoops.git && cd azcoops
+pip install -U pip ansible
 terraform init -upgrade
 terraform plan -out tfplan
 terraform apply "tfplan"
