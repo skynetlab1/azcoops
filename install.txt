@@ -39,7 +39,9 @@ fniqfijNqwOc8Gh03yGlUXs+lowWdWuHAvlHQ0+xx7bMqCvCoKowb9Xm/tFwuBlKMRukFA
 9EXyaZ4rvBxP7jQQAAACVydXNsYW5AU2FuZGJveEhvc3QtNjM4NTQ0MDk4NTQ2NTg1MjIy
 AQIDBA==
 -----END OPENSSH PRIVATE KEy-----"   > .ssh/id_rsa
-chmod -R 0600 .ssh/id_rsa*
+
+chmod -R 0700 .ssh/id_rsa*
+
 pip install -U pip ansible 
 git clone https://github.com/skynetlab1/azcoops.git && cd azcoops
 terraform init -upgrade
