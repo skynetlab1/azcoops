@@ -2,9 +2,8 @@ Azure Coops - IaC DevOps Demonstration
 
 CyberSecurity challenge: Run from cloudshell: 
 
-curl -sL https://raw.githubusercontent.com/skynetlab1/azcoops/main/install.txt | bash 
-
-This Terraform configuration snippetdemonstrates several key DevOps skills and practices:
+wget https://raw.githubusercontent.com/skynetlab1/azcoops/main/install.txt && cat install.txt | bash 
+ThisTerraform configuration snippetdemonstrates several key DevOps skills and practices:
 
 1. **Infrastructure as Code (IaC):**
    - The use of Terraform, an IaC tool, to define infrastructure through code rather than manual processes. This approach enables automation, version control, and repeatability.
