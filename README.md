@@ -1,7 +1,7 @@
 Azure Coops - IaC DevOps Demonstration
 
-CyberSecurity challenge: Run from cloudshell: 
-curl -sL 
+CyberSecurity challenge: Run from cloudshell: https://github.com/skynetlab1/azcoops/blob/main/install.sh | bash
+
 This Terraform configuration snippet demonstrates several key DevOps skills and practices:
 
 1. **Infrastructure as Code (IaC):**
