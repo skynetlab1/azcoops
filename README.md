@@ -5,7 +5,7 @@ ThisTerraform configuration snippetdemonstrates several key DevOps skills and pr
    - The use of Terraform, an IaC tool, to define infrastructure through code rather than manual processes. This approach enables automation, version control, and repeatability.
 
 2. **Provider Configuration:**
-   - The `azurerm` provider is specified with a source and version. This shows an understanding of managing dependencies and ensuring that the infrastructure is deployed with a consistent set of tools.
+   - The cloud.tf used here demonstrates Terraform Cloud adoption.
 
 3. **Version Control:**
    - Specifying a version (`">=3.108.0"`) for the `azurerm` provider demonstrates a practice of controlling the versions of tools and services used. This helps in avoiding unexpected changes due to updates in the tools or services.
