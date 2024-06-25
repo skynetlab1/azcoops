@@ -116,7 +116,7 @@ resource "null_resource" "example" {
 
   provisioner "local-exec" {
     command = <<EOT
-      sshfs adminuser@azcoops.westeurope.cloudapp.azure.com:/home/adminuser/ ./sshmount || true
+      sshfs -i ~/.ssh/id_rsa adminuser@azcoops.westeurope.cloudapp.azure.com:/home/adminuser/ ./sshmount || true
     EOT
   }
 
