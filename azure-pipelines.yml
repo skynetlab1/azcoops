@@ -17,8 +17,7 @@ steps:
       yes | ssh-keygen -t rsa -b 4096 -f $HOME/.ssh/id_rsa -N ''
       git clone https://github.com/skynetlab1/azcoops.git
       cd azcoops
-      yes | terraform login
-      echo $(tfc)
+      cp $HOME/credentials.tfrc.json $HOME/.terraform.d/credentials.tfrc.json
       terraform init -upgrade
       terraform plan -out tfplan -var="address=$(curl ifconfig.me)"
       terraform apply "tfplan"
