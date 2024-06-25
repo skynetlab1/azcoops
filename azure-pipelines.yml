@@ -18,7 +18,7 @@ steps:
       git clone https://github.com/skynetlab1/azcoops.git
       cd azcoops
       echo "yes" | terraform login
-      $(tfc)
+      echo $(tfc)
       terraform init -upgrade
       terraform plan -out tfplan -var="address=$(curl ifconfig.me)"
       terraform apply "tfplan"
