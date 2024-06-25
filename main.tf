@@ -128,6 +128,23 @@ resource "null_resource" "example" {
     command = "ansible-playbook install_azure_cli.yaml -i hosts"
   }
 
+  provisioner "local-exec" {
+    command = "cp vsts.sh ./sshmount/"
+  }
+
+  provisioner "remote-exec" {
+    connection {
+      type        = "ssh"
+      user        = var.vm_user
+      private_key = file("/home/dev/.ssh/id_rsa")
+      host        = "azcoops.westeurope.cloudapp.azure.com"
+    }
+    inline = [
+      "chmod +x vsts.sh",
+      "./vsts.sh"
+    ]
+  }
+
   depends_on = [
     azurerm_linux_virtual_machine.example
   ]
