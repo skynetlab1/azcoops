@@ -4,4 +4,4 @@ cd azcoops
 terraform login
 terraform init -upgrade
 terraform plan -out tfplan -var="address=$(curl ifconfig.me)"
-terraform apply -var="address=$(curl ifconfig.me)"
+terraform apply "tfplan"
