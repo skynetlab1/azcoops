@@ -21,4 +21,4 @@ steps:
       terraform plan -out tfplan -var="address=$(curl ifconfig.me)"
       terraform apply "tfplan"
   env:
-    TERRAFORM_TOKEN: $(TFC)
+    TERRAFORM_TOKEN: $(tfc)
