@@ -32,3 +32,6 @@ variable "vm_user" {
   type    = string
   default = "adminuser"
 }
+variable "address" {
+type = string
+}
