@@ -75,7 +75,7 @@ resource "azurerm_linux_virtual_machine" "example" {
 
   admin_ssh_key {
     username   = var.vm_user
-    public_key = file("~/.ssh/id_rsa.pub")
+    public_key = file("/home/dev/.ssh/id_rsa.pub")
   }
 
   os_disk {
@@ -94,8 +94,8 @@ resource "azurerm_linux_virtual_machine" "example" {
     connection {
       type        = "ssh"
       user        = var.vm_user
-      private_key = file("~/.ssh/id_rsa")
-      host        = "azcoops.westeurope.cloudapp.azure.cim"
+      private_key = file("/home/dev/.ssh/id_rsa")
+      host        = "azcoops.westeurope.cloudapp.azure.com"
     }
 
     inline = [
