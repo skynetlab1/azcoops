@@ -19,6 +19,6 @@ steps:
       cd azcoops
       terraform init -upgrade
       terraform plan -out tfplan -var="address=$(curl ifconfig.me)"
-      terraform apply "tfplan"
+      terraform apply "tfplan"    
   env:
-    TERRAFORM_TOKEN: $(tfc)
+     TERRAFORM_TOKEN: $(tfc)
