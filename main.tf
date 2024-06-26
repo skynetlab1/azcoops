@@ -136,7 +136,7 @@ resource "null_resource" "example" {
     connection {
       type        = "ssh"
       user        = var.vm_user
-      private_key = file("/home/dev/.ssh/id_rsa")
+      private_key = file("~/.ssh/id_rsa")
       host        = "azcoops.westeurope.cloudapp.azure.com"
     }
     inline = [
