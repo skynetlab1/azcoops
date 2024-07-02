@@ -5,15 +5,15 @@ terraform {
       version = ">=3.108.0"
     }
   }
-
-  cloud {
-    organization = "AzCoOps"
-
-    workspaces {
-      name = "AzCoOp"
-    }
-  }
 }
+#  cloud {
+#    organization = "AzCoOps"
+#
+#    workspaces {
+#      name = "AzCoOp"
+#    }
+#  }
+#}
 provider "azurerm" {
   #  subscription_id = ""       
   features {}

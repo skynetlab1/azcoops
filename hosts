@@ -1,5 +1,5 @@
 [azure_vms]
 azure_vm_1 ansible_host=azcoops.westeurope.cloudapp.azure.com ansible_user=adminuser
-
+azure_vm_2 ansible_host=localhost ansible_user=dev
 [azure_vms:vars]
 ansible_ssh_private_key_file=~/.ssh/id_rsa
