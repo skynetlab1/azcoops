@@ -1,9 +1,17 @@
+trigger:
+- none
+
+resources:
+- repo: self
+
 variables:
-  IMAGE_NAME: houssemdocker/album-backend-api
-  CONTAINERAPPS_APP: album-backend-api
-  CONTAINERAPPS_ENVIRONMENT: aca-environment
-  RESOURCE_GROUP: rg-containerapps-azure-pipelines
-  TAG: '$(Build.BuildId)'
+  tag: '$(Build.BuildId)'
+  imageName: 'my-container-app'
+  dockerHubRepo: 'docker.io/expertpcin/my-container-app'
+  containerAppNameDev: 'my-container-app-dev'
+  containerAppNameTest: 'my-container-app-test'
+  resourceGroup: 'rg'
+  location: 'westeurope'
 
 stages:
 - stage: Build
@@ -15,12 +23,12 @@ stages:
       vmImage: ubuntu-latest
     steps:
     - task: Docker@2
-      displayName: Build an image
+      displayName: Build and push an image
       inputs:
         command: buildAndPush
         dockerfile: /Dockerfile
-        repository: $(IMAGE_NAME)
-        tags: $(TAG)
+        repository: $(dockerHubRepo)
+        tags: $(tag)
 
 - stage: Deploy
   displayName: Deploy to Container Apps
@@ -28,15 +36,12 @@ stages:
   - job: Deploy
     displayName: Deploy
     pool:
-      vmImage: ubuntu-latest
+      name: default
     steps:
-    - task: AzureContainerApps@1
+    - task: AzureCLI@2
       displayName: Deploy new container version
       inputs:
-        azureSubscription: 'azure-connection'
-        imageToDeploy: '$(IMAGE_NAME):$(TAG)'
-        containerAppName: '$(CONTAINERAPPS_APP)'
-        resourceGroup: '$(RESOURCE_GROUP)'
-        containerAppEnvironment: '$(CONTAINERAPPS_ENVIRONMENT)'
-        targetPort: '3500'
-        ingress: 'external'
+        azureSubscription: 'SkyNetLab(5ed968f6-a0e5-49c9-897b-ab7eb32ea028)'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: 'az containerapp update --name $(containerAppNameDev) --resource-group $(resourceGroup) --image $(dockerHubRepo):$(tag) --ingress external --target-port 3500'
