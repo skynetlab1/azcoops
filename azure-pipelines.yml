@@ -5,9 +5,7 @@ resources:
 - repo: self
 
 variables:
-  tag: '$(Build.BuildId)'
-  imageName: 'my-container-app'
-  dockerHubRepo: 'docker.io/expertpcin/my-container-app'
+  IMAGE_NAME: houssemdocker/album-backend-api
   containerAppNameDev: 'my-container-app-dev'
   containerAppNameTest: 'my-container-app-test'
   resourceGroup: 'rg'
